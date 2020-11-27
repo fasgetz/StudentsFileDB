@@ -1,0 +1,62 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include "LogicApp.h"
+using namespace std;
+
+class Program
+{
+private:
+	LogicApp app;
+	void RenderMenu() {
+		std::cout << "\n\n1) Вывод студентов\n";
+		std::cout << "2) Добавить студента\n";
+		std::cout << "3) Удалить студента\n";
+		std::cout << "4) Редактировать студента\n";
+		std::cout << "5) Завершение программы\n";
+	}
+public:
+	void StartProgram() {
+		while (true) {
+			// Рисуем меню
+			RenderMenu();
+
+			string inp;
+			cout << "Введите номер меню: ";
+			cin >> inp;
+
+			try {
+				int res = stoi(inp);
+
+				switch (res)
+				{
+				case (1):
+					app.Add();
+					break;
+				case (2):
+					cout << "выбран 2\n";;
+					break;
+				case (3):
+					cout << "выбран 3\n";;
+					break;
+				case (4):
+					cout << "выбран 4\n";;
+					break;
+				case (5): {
+					cout << "Завершение программы\n";;
+					return;
+				}
+				default: {
+					cout << "Выберите действующий пункт из меню!\n";;
+					break;
+				}
+				}
+
+			}
+			catch (std::invalid_argument e) {
+				cout << "Вы ввели не число\n";
+			}
+		}
+	}
+};
+
