@@ -6,12 +6,12 @@ using namespace std;
 
 class Program
 {
-private:
+public:
 	LogicApp app;
 	void RenderMenu() {
 		std::cout << "\n\n1) Вывод студентов\n";
 		std::cout << "2) Добавить студента\n";
-		std::cout << "3) Удалить студента\n";
+		std::cout << "3) Удалить студента (по фамилии)\n";
 		std::cout << "4) Редактировать студента\n";
 		std::cout << "5) Завершение программы\n";
 	}
@@ -78,6 +78,7 @@ public:
 					break;
 				}				
 				case (3):
+					app.RemoveStudentFamily("r");
 					cout << "выбран 3\n";;
 					break;
 				case (4):

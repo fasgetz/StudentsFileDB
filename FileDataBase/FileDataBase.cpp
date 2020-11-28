@@ -7,6 +7,8 @@
 
 using namespace std;
 
+string family;
+bool even(const Student& value) { return value.family == "r"; }
 
 void main()
 {
@@ -14,32 +16,7 @@ void main()
 
 
 	Program program;
-
 	program.StartProgram();
-
-
-
-
-
-
-	//LinkedList list;
-
-
-	//list.addValue(st);
-
-	//st.name = "Oleg2";
-	//list.addValue(st);
-
-	//st.name = "Ivan3";
-	//list.addValue(st);
-
-
-	//Student value = list.popValue();
-
-	//cout << value.name << endl;
-
-
-
 
 
 }
