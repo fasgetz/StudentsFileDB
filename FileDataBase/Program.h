@@ -30,12 +30,53 @@ public:
 
 				switch (res)
 				{
-				case (1):
-					app.Add();
+				case (1): {
+					app.WatchStudents();
 					break;
-				case (2):
-					cout << "выбран 2\n";;
+				}
+				case (2): {
+					Student student;
+
+					string inp;
+
+					cout << "Введите имя: ";
+					cin >> inp;
+					student.name = inp;
+
+					cout << "Введите фамилию: ";
+					cin >> inp;
+					student.family = inp;
+
+					cout << "Введите отчество: ";
+					cin >> inp;
+					student.lastname = inp;
+
+
+					while (true) {
+						cout << "Введите возраст: ";
+						cin >> inp;
+
+						try {
+							int age = stoi(inp);
+
+							student.age = age;
+
+							break;
+						}
+						catch (std::invalid_argument exAge) {
+							cout << "Вы ввели не число\n";
+						}
+
+					}
+
+					cout << "Введите гендер (Основные М и Ж): ";
+					cin >> inp;
+
+					student.gender = inp;
+
+					app.Add(student);
 					break;
+				}				
 				case (3):
 					cout << "выбран 3\n";;
 					break;
