@@ -9,6 +9,7 @@ using std::string;
 class Student
 {
 public:
+	int number;
 	string family;
 	string name;
 	string lastname;
