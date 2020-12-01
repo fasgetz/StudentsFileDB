@@ -145,7 +145,7 @@
     <ClInclude Include="LogicApp.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="Student.h" />
-    <ClInclude Include="FileLogic.h" />
+    <ClInclude Include="LogicFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

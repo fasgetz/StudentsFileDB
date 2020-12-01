@@ -2,12 +2,15 @@
 #include <iostream>
 #include <string>
 #include "LogicApp.h"
+#include "LogicFile.h"
+
 using namespace std;
 
 class Program
 {
 public:
 	LogicApp app;
+	LogicFile logic;
 	void RenderMenu() {
 		std::cout << "\n\n1) Вывод студентов\n";
 		std::cout << "2) Добавить студента\n";
@@ -15,7 +18,9 @@ public:
 		std::cout << "4) Удалить студента (по фамилии)\n";
 		std::cout << "5) Удалить последнего студента в списке\n";
 		std::cout << "6) Редактировать студента\n";
-		std::cout << "7) Завершение программы\n";
+		std::cout << "7) Сохранение в файле\n";
+		std::cout << "8) Считывание с файла\n";
+		std::cout << "9) Завершение программы\n";
 	}
 public:
 	void StartProgram() {
@@ -148,6 +153,30 @@ public:
 						break;
 					}
 					case (7): {
+						try {
+							logic.Save(app.students);
+							cout << "Успешно сохранено " << app.GetCountStudents() << " студентов\n";
+						}
+						catch (...) {
+
+						}
+
+						break;
+					}
+					case (8): {
+						try {
+							auto students = logic.LoadFile();
+
+							app.students = students;
+							cout << "Успешно считано " << students.size() << " студентов\n";
+						}
+						catch (...) {
+
+						}
+
+						break;
+					}
+					case (9): {
 						cout << "Завершение программы\n";;
 						return;
 					}
