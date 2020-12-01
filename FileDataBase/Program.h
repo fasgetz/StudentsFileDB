@@ -13,8 +13,9 @@ public:
 		std::cout << "2) Добавить студента\n";
 		std::cout << "3) Удалить студента (по номеру)\n";
 		std::cout << "4) Удалить студента (по фамилии)\n";
-		std::cout << "5) Редактировать студента\n";
-		std::cout << "6) Завершение программы\n";
+		std::cout << "5) Удалить последнего студента в списке\n";
+		std::cout << "6) Редактировать студента\n";
+		std::cout << "7) Завершение программы\n";
 	}
 public:
 	void StartProgram() {
@@ -121,6 +122,16 @@ public:
 					}
 					case (5): {
 						try {
+							app.RemoveLastStudent();
+							break;
+						}
+						catch (...)
+						{
+							std::cout << "Ошибка! Повторите попытку." << std::endl;
+						}
+					}
+					case (6): {
+						try {
 							string numberInp;
 
 							cout << "Введите номер редактируемого студента: ";
@@ -136,7 +147,7 @@ public:
 						
 						break;
 					}
-					case (6): {
+					case (7): {
 						cout << "Завершение программы\n";;
 						return;
 					}

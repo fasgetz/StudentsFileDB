@@ -26,18 +26,18 @@ class LogicApp
 {
 	public:
 		int numberCurrentStudent = 0;
-		string family;
-		bool even(const Student& value) { return value.family == family; }
 		std::list<Student> students;
 	public:
-		void Add(Student student) {
+		bool Add(Student student) {
 			student.number = ++numberCurrentStudent;
 			students.push_back(student);
 			std::cout << "Студент " << student.name << " добавлен в бд!\n";
+
+			return true;
 		}
 		void WatchStudents() {
 			int size = students.size();
-			std::cout << "Количество студентов в бд: " << size << "\n";
+			std::cout << "Количество студентов в бд: " << GetCountStudents() << "\n";
 
 			// перебор в цикле
 			for (Student item : students)
@@ -49,7 +49,7 @@ class LogicApp
 			ev.number = numb;
 
 			cout << ev.number << " удаление по номеру\n";;
-			students.remove_if(ev);
+			students.remove_if(ev);			
 
 		}
 		// Удаление по фамилии
@@ -60,6 +60,56 @@ class LogicApp
 			cout << ev.family << " удаление по фамилии\n";;
 			students.remove_if(ev);			
 
+		}
+		// Удаление последнего студента в списке
+		bool RemoveLastStudent() {
+
+			if (students.size() > 0) {
+				students.pop_back();
+				cout << "последний студент в списке удален!\n";;
+
+				return true;
+			}
+			else {
+				cout << "Список пустой\n";;
+
+				return false;
+			}
+				
+				
+		}
+		// Есть ли студент по номеру в списке
+		bool HasStudentWithNumb(int numbSearch) {
+			for (Student item : students) {
+
+				if (item.number == numbSearch)
+					return true;
+
+			}
+
+			return false;
+		}
+		// Есть ли студент по фамилии в списке
+		bool HasStudentWithFamily(string family) {
+			for (Student item : students) {
+
+				if (item.family == family)
+					return true;
+
+			}
+
+			return false;
+		}
+		// Есть ли студент по имени в списке
+		bool HasStudentWithName(string name) {
+			for (Student item : students) {
+
+				if (item.name == name)
+					return true;
+
+			}
+
+			return false;
 		}
 		// Редактирование
 		void EditStudent(int numbSearch) {
@@ -120,6 +170,11 @@ class LogicApp
 					}
 				}
 			}
+		}
+		// Метод возвращает количество студентов в списке
+		int GetCountStudents() {
+			auto count = students.size();
+			return count;
 		}
 };
 
