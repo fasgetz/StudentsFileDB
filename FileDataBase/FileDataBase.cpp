@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "Program.h"
+#include "Program.cpp"
 
 using namespace std;
 

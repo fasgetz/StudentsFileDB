@@ -1,10 +1,16 @@
+#ifndef LOGICFILE
+#define LOGICFILE
 
 #include <iostream>
 #include <list>
 #include <string>
 #include "Student.h"
+#include <fstream>
 #include <sstream>
 #include <vector>
+#include "_Logic.h"
+
+
 using namespace std;
 
 
@@ -13,7 +19,10 @@ using namespace std;
 /// Логика сохранения в файле
 /// </summary>
 class LogicFile {
+
 public:
+
+
 	// Сохранение в файл
 	bool Save(std::list<Student> list) {
 		ofstream testFile("data");
@@ -53,16 +62,10 @@ public:
 
 		return list; // возвращаем список
 	}
-	// Метод для сплита строки (формирование массива, который убирает делитель)
-	std::vector<std::string> split(const std::string& s, char delim) {
-		std::stringstream ss(s);
-		std::string item;
-		std::vector<std::string> elems;
-		while (std::getline(ss, item, delim)) {
-			elems.push_back(item);
-		}
-		return elems;
-	}
+
+
+
 };
 
-
+// Заканчиваем директивой препроцессора
+#endif

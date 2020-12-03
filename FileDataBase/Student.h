@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-using std::string;
 
 /// <summary>
 /// Сущность студента
@@ -10,11 +9,10 @@ class Student
 {
 public:
 	int number;
-	string family;
-	string name;
-	string lastname;
+	std::string family;
+	std::string name;
+	std::string lastname;
 	int age;
-	string gender;
-
+	std::string gender;
 };
 
